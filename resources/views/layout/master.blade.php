@@ -65,17 +65,49 @@
 
                             <!-- Dropdown-->
                             <li class="panel panel-default" id="dropdown">
+                                <a data-toggle="collapse" href="#dropdown-Clientes" class="bg-primary">
+                                    <span class="glyphicon glyphicon-folder-open"></span> Clientes <span class="caret"></span>
+                                </a>
+
+                                <!-- Usuarios-->
+                                <div id="dropdown-Clientes" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav navbar-inverse">
+                                            <li><a href="{{route('lista_clientes')}}"><small class="glyphicon glyphicon-list"></small>Lista</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Dropdown-->
+                            <li class="panel panel-default" id="dropdown">
+                                <a data-toggle="collapse" href="#dropdown-Proveedores" class="bg-primary">
+                                    <span class="glyphicon glyphicon-folder-open"></span> Proveedores <span class="caret"></span>
+                                </a>
+
+                                <!-- Usuarios-->
+                                <div id="dropdown-Proveedores" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <ul class="nav navbar-nav navbar-inverse">
+                                            <li><a href="{{route('lista_proveedores')}}"><small class="glyphicon glyphicon-list"></small>Lista</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <!-- Dropdown-->
+                            <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#dropdown-Lawyer" class="bg-primary">
-                                    <span class="glyphicon glyphicon-folder-open"></span> Socios <span class="caret"></span>
+                                    <span class="glyphicon glyphicon-folder-open"></span> Cuentas por cobrar <span class="caret"></span>
                                 </a>
 
                                 <!-- Usuarios-->
                                 <div id="dropdown-Lawyer" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
-                                            <li><a href="#"><small class="glyphicon glyphicon-plus"></small>Agregar</a></li>
-                                            <li><a href="#"><small class="glyphicon glyphicon-list"></small>Lista</a></li>
-                                            <li><a href="#"><small class="glyphicon glyphicon-erase"></small>Inactivos</a></li>
+                                            <li><a href="#"><small class="glyphicon glyphicon-plus"></small>Registrar</a></li>
+                                            <li><a href="#"><small class="glyphicon glyphicon-list"></small>Consultar</a></li>
+                                            <li><a href="#"><small class="glyphicon glyphicon-erase"></small>Abonos</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -84,15 +116,16 @@
                             <!-- Dropdown-->
                             <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#dropdown-Contributions" class="bg-primary">
-                                    <span class="glyphicon glyphicon-calendar"></span> Aportaciones <span class="caret"></span>
+                                    <span class="glyphicon glyphicon-calendar"></span> Cuentas por pagar <span class="caret"></span>
                                 </a>
 
                                 <!-- Usuarios-->
                                 <div id="dropdown-Contributions" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
-                                            <li><a href="#"><small class="glyphicon glyphicon-plus"></small>Registrar Pago</a></li>
-                                            <li><a href="#"><small class="glyphicon glyphicon-list"></small>Ver Pagos</a></li>
+                                            <li><a href="#"><small class="glyphicon glyphicon-plus"></small>Registrar</a></li>
+                                            <li><a href="#"><small class="glyphicon glyphicon-list"></small>Consultar</a></li>
+                                            <li><a href="#"><small class="glyphicon glyphicon-erase"></small>Abonos</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -108,8 +141,8 @@
                                 <div id="dropdown-Resports" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
-                                            <li><a href="#"><small class="glyphicon glyphicon-print"></small>Imprimir Lista Abogados</a></li>
-                                            <li><a href="#"><small class="glyphicon glyphicon-print"></small>Reporte de Aportaciones</a></li>
+                                            <li><a href="#"><small class="glyphicon glyphicon-print"></small>Reporte 1</a></li>
+                                            <li><a href="#"><small class="glyphicon glyphicon-print"></small>Reporte 2</a></li>
                                         </ul>
                                     </div>
                                 </div>

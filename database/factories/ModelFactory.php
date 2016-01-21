@@ -20,3 +20,24 @@ $factory->define(CuentasFacturas\User::class, function (Faker\Generator $faker) 
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(CuentasFacturas\Clientes::class, function (Faker\Generator $faker) {
+    return [
+        'identificacion' =>$faker->unique()->numerify('1#########'),
+        'nombres' => $faker->firstName.' '.$faker->firstName,
+        'apellidos' => $faker->lastName.' '.$faker->lastName,
+        'correo' => $faker->email,
+        'direccion' => $faker->address,
+        'telefono' => $faker->numerify('02#######'),
+    ];
+});
+
+$factory->define(CuentasFacturas\Proveedores::class, function (Faker\Generator $faker) {
+    return [
+        'identificacion' =>$faker->unique()->numerify('1#########'),
+        'nombres' => $faker->firstName.' '.$faker->lastName,
+        'correo' => $faker->email,
+        'direccion' => $faker->address,
+        'telefono' => $faker->numerify('02#######'),
+    ];
+});

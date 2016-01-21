@@ -75,3 +75,15 @@ Route::get('user_out}', [
     'as' => 'user_out',
     'uses' => 'Auth\AuthController@getOutUser'
 ]);
+
+//Clientes
+Route::get('lista_clientes', [
+    'as' => 'lista_clientes',
+    'uses' => 'ClientesController@getList'
+]);
+
+//Proveedores
+Route::get('lista_proveedores', [
+    'as' => 'lista_proveedores',
+    'uses' => 'ProveedoresController@getList'
+]);
