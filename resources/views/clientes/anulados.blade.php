@@ -1,29 +1,8 @@
 @extends('layout/master')
 
-<?php $title='Lista Clientes' ?>
+<?php $title='Lista Clientes Anulados' ?>
 
 <?php $message=Session::get('message') ?>
-@if($message == 'ok')
-@section('script')
-    <script>
-        var n = noty({text: 'Cliente registrado Correctamente!', type: 'success'});
-    </script>
-@endsection
-@endif
-@if($message == 'editok')
-@section('script')
-    <script>
-        var n = noty({text: 'Cliente actualizado Correctamente!', type: 'success'});
-    </script>
-@endsection
-@endif
-@if($message == 'anularok')
-@section('script')
-    <script>
-        var n = noty({text: 'Cliente Anulado Correctamente!', type: 'success'});
-    </script>
-@endsection
-@endif
 
 @section('content')
     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
@@ -31,6 +10,7 @@
         <table class="table">
             <thead>
             <tr>
+                <th></th>
                 <th>identificación</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
@@ -44,6 +24,9 @@
             <tbody>
             @foreach( $clientes as $cliente)
                 <tr>
+                    <td>
+                        <small><a id="cliente_restore" onclick="Restaurar($(this).data('id'))" data-id="{!! $cliente->id !!}"  class="btn btn-success glyphicon glyphicon-refresh btn-xs" title="Restaurar" data-toggle="modal" data-target="#myModalRestore" onclick=""></a></small>
+                    </td>
                     <td>{{$cliente->identificacion}}</td>
                     <td>{{$cliente->nombres}}</td>
                     <td>{{$cliente->apellidos}}</td>
@@ -51,11 +34,7 @@
                     <td>{{$cliente->direccion}}</td>
                     <td>{{$cliente->telefono}}</td>
                     <td>
-                        <small><a href="{{route('editar_cliente',$cliente->id)}}" class="btn btn-default glyphicon glyphicon-pencil btn-xs" title="Editar"></a></small>
-                    </td>
-                    <td>
-                        <!--<small><a href="{{route('anular_cliente',$cliente->id)}}" class="btn btn-danger glyphicon glyphicon-remove-sign btn-xs" title="Anular"></a></small>-->
-                        <small><a onclick="Anular($(this).data('id'))" data-id="{!! $cliente->id !!}" class="btn btn-warning glyphicon glyphicon-remove-sign btn-xs" title="Anular"></a></small>
+                        <small><a id="cliente_delete" onclick="Eliminar($(this).data('id'))" data-id="{!! $cliente->id !!}"  class="btn btn-danger glyphicon glyphicon-trash btn-xs" title="Eliminar" data-toggle="modal" data-target="#myModalRestore" onclick=""></a></small>
                     </td>
                 </tr>
             @endforeach
@@ -70,16 +49,16 @@
 
 @section('script')
     <script>
-        function Anular(id) {
+        function Restaurar(id) {
             noty({
-                text: '&#191;Est&#225; seguro de querer anular el cliente?',
+                text: '&#191;Est&#225; seguro de querer restaurar el cliente?',
                 buttons: [
                     {addClass: 'btn btn-primary', text: 'Si', onClick: function($noty) {
                         $noty.close();
                         var token = $('#token').val();
                         //***************//
                         $.ajax({
-                            url : '/anular_cliente/'+id,
+                            url : '/restaurar_cliente/'+id,
                             headers:{'X-CSRF-TOKEN' : token},
                             type:'GET',
                             dataType: 'json',
@@ -87,7 +66,47 @@
                             {
                                 if(r.mensaje == "ok") {
                                     window.location.reload();
-                                    var n = noty({text: 'Cliente anulado correctamente!', type: 'success'});
+                                    var n = noty({text: 'Cliente restaurado correctamente!', type: 'success'});
+                                }
+                            },
+                            error:function(r)
+                            {
+                                debugger;
+                                var s = r;
+                                var n = noty({text: 'Errores!', type: 'error'});
+                            }
+                        });
+                        //**************//
+                    }
+                    },
+                    {addClass: 'btn btn-danger', text: 'Cancelar', onClick: function($noty) {
+                        $noty.close();
+                        noty({text: 'Acci&#243;n Cancelada ', type: 'information'});
+                    }
+                    }
+                ]
+            });
+
+        }
+
+        function Eliminar(id) {
+            noty({
+                text: '&#191;Est&#225; seguro de querer eliminar el cliente?',
+                buttons: [
+                    {addClass: 'btn btn-primary', text: 'Si', onClick: function($noty) {
+                        $noty.close();
+                        var token = $('#token').val();
+                        //***************//
+                        $.ajax({
+                            url : '/eliminar_cliente/'+id,
+                            headers:{'X-CSRF-TOKEN' : token},
+                            type:'GET',
+                            dataType: 'json',
+                            success:function(r)
+                            {
+                                if(r.mensaje == "ok") {
+                                    window.location.reload();
+                                    var n = noty({text: 'Cliente eliminado correctamente!', type: 'success'});
                                 }
                             },
                             error:function(r)

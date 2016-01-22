@@ -73,7 +73,9 @@
                                 <div id="dropdown-Clientes" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
+                                            <li><a href="{{route('registrar_cliente')}}"><small class="glyphicon glyphicon-plus"></small>Registrar</a></li>
                                             <li><a href="{{route('lista_clientes')}}"><small class="glyphicon glyphicon-list"></small>Lista</a></li>
+                                            <li><a href="{{route('anulados_clientes')}}"><small class="glyphicon glyphicon-trash"></small>Anulados</a></li>
                                         </ul>
                                     </div>
                                 </div>
