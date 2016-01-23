@@ -2,9 +2,11 @@
 
 namespace CuentasFacturas\Http\Controllers;
 
-use asoabo\Http\Controllers\Extend\validations;
+
+
 use CuentasFacturas\Clientes;
 
+use CuentasFacturas\Http\Extenciones\Validaciones;
 use CuentasFacturas\Http\Requests;
 use CuentasFacturas\Http\Controllers\Controller;
 
@@ -24,17 +26,14 @@ class ClientesController extends Controller
     }
     public function postRegistro(Requests\ClienteRegistroRequest $request)
     {
-        //$resp = validations::validarCI($request['identificacion']);
-        //if ($resp == 'ok') {
-        if (true) {
-            Clientes::create($request->all());
-            return redirect()->route('registrar_cliente')->with('message', 'ok');
-        } else {
-            $errors = array(
-                //"0" => $resp
-            );
+        $resp = Validaciones::validarCI($request['identificacion']);
+        if ($resp != 'ok') {
+            $errors = array("0" => $resp);
             return $request->response($errors);
         }
+
+        Clientes::create($request->all());
+        return redirect()->route('registrar_cliente')->with('message', 'ok');
     }
 
     public function getEditar($id)
@@ -50,6 +49,12 @@ class ClientesController extends Controller
     public function posteditar(Requests\ClienteEditarRequest $request)
     {
         $cliente = Clientes::find($request['id']);
+
+        $resp = Validaciones::validarCI($request['identificacion']);
+        if ($resp != 'ok') {
+            $errors = array("0" => $resp);
+            return $request->response($errors);
+        }
 
         $existe = Clientes::where('identificacion','=',$request['identificacion'])->where('id','<>',$request['id'])->get();
         if($existe->count() > 0){

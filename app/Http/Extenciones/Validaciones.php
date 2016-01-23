@@ -1,6 +1,8 @@
 <?php
-namespace asoabo\Http\Controllers\Extend;
-class validations
+
+namespace CuentasFacturas\Http\Extenciones;
+
+class Validaciones
 {
     public static function validarCI($strCedula)
     {
@@ -8,7 +10,17 @@ class validations
             return "Por Favor Ingrese la Cedula";
         }else{//caso contrario sigo el proceso
             if(is_numeric($strCedula)){
+
                 $total_caracteres=strlen($strCedula);// se suma el total de caracteres
+
+                //Quitar 001 del RUC
+                if($total_caracteres == 13)
+                {
+                    $sinruc = substr($strCedula,0,strrpos($strCedula,'001'));
+                    $strCedula = $sinruc;
+                    $total_caracteres=strlen($sinruc);
+                }
+
                 if($total_caracteres==10){//compruebo que tenga 10 digitos la cedula
                     $nro_region=substr($strCedula, 0,2);//extraigo los dos primeros caracteres de izq a der
                     if($nro_region>=1 && $nro_region<=24){// compruebo a que region pertenece esta cedula//
