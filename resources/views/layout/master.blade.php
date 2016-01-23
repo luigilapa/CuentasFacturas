@@ -91,7 +91,9 @@
                                 <div id="dropdown-Proveedores" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
+                                            <li><a href="{{route('registrar_proveedor')}}"><small class="glyphicon glyphicon-plus"></small>Registrar</a></li>
                                             <li><a href="{{route('lista_proveedores')}}"><small class="glyphicon glyphicon-list"></small>Lista</a></li>
+                                            <li><a href="{{route('anulados_proveedores')}}"><small class="glyphicon glyphicon-trash"></small>Anulados</a></li>
                                         </ul>
                                     </div>
                                 </div>

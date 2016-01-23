@@ -24,7 +24,7 @@ class ClientesController extends Controller
     {
         return view('clientes.registrar');
     }
-    public function postRegistro(Requests\ClienteRegistroRequest $request)
+    public function postRegistro(Requests\Clientes\ClienteRegistroRequest $request)
     {
         $resp = Validaciones::validarCI($request['identificacion']);
         if ($resp != 'ok') {
@@ -46,7 +46,7 @@ class ClientesController extends Controller
         return view('clientes.editar',compact('cliente'));
     }
 
-    public function posteditar(Requests\ClienteEditarRequest $request)
+    public function posteditar(Requests\Clientes\ClienteEditarRequest $request)
     {
         $cliente = Clientes::find($request['id']);
 

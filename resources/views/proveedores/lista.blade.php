@@ -6,14 +6,21 @@
 @if($message == 'ok')
 @section('script')
     <script>
-        var n = noty({text: 'Cliente registrado Correctamente!', type: 'success'});
+        var n = noty({text: 'Proveedor registrado Correctamente!', type: 'success'});
     </script>
 @endsection
 @endif
 @if($message == 'editok')
 @section('script')
     <script>
-        var n = noty({text: 'Cliente actualizado Correctamente!', type: 'success'});
+        var n = noty({text: 'Proveedor actualizado Correctamente!', type: 'success'});
+    </script>
+@endsection
+@endif
+@if($message == 'anularok')
+@section('script')
+    <script>
+        var n = noty({text: 'Proveedor Anulado Correctamente!', type: 'success'});
     </script>
 @endsection
 @endif
@@ -42,10 +49,11 @@
                     <td>{{$proveedor->direccion}}</td>
                     <td>{{$proveedor->telefono}}</td>
                     <td>
-                        <small><a href="{{route('user_edit',$proveedor->id)}}" class="btn btn-warning glyphicon glyphicon-pencil btn-xs" title="Editar"></a></small>
+                        <small><a href="{{route('editar_proveedor',$proveedor->id)}}" class="btn btn-default glyphicon glyphicon-pencil btn-xs" title="Editar"></a></small>
                     </td>
                     <td>
-                        <small><a onclick="CancelUser($(this).data('id'))" data-id="{!! $proveedor->id !!}" class="btn btn-danger glyphicon glyphicon-remove-sign btn-xs" title="Anular"></a></small>
+                        <!--<small><a href="{{route('anular_proveedor',$proveedor->id)}}" class="btn btn-danger glyphicon glyphicon-remove-sign btn-xs" title="Anular"></a></small>-->
+                        <small><a onclick="Anular($(this).data('id'))" data-id="{!! $proveedor->id !!}" class="btn btn-warning glyphicon glyphicon-remove-sign btn-xs" title="Anular"></a></small>
                     </td>
                 </tr>
             @endforeach
@@ -60,27 +68,24 @@
 
 @section('script')
     <script>
-        function CancelUser(id) {
+        function Anular(id) {
             noty({
-                text: '&#191;Est&#225; seguro de querer anular este usuario?',
+                text: '&#191;Est&#225; seguro de querer anular el proveedor?',
                 buttons: [
                     {addClass: 'btn btn-primary', text: 'Si', onClick: function($noty) {
                         $noty.close();
                         var token = $('#token').val();
                         //***************//
                         $.ajax({
-                            url : '/user_cancel/'+id,
+                            url : '/anular_proveedor/'+id,
                             headers:{'X-CSRF-TOKEN' : token},
-                            type:'POST',
+                            type:'GET',
                             dataType: 'json',
                             success:function(r)
                             {
                                 if(r.mensaje == "ok") {
                                     window.location.reload();
-                                    var n = noty({text: 'Usuario anulado correctamente!', type: 'success'});
-                                }
-                                if(r.mensaje == "login") {
-                                    var n = noty({text: 'Usuario logiado actualmente!', type: 'information'});
+                                    var n = noty({text: 'Proveedor anulado correctamente!', type: 'success'});
                                 }
                             },
                             error:function(r)

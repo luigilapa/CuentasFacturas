@@ -1,6 +1,6 @@
 <?php
 
-namespace CuentasFacturas\Http\Requests;
+namespace CuentasFacturas\Http\Requests\Clientes;
 
 use CuentasFacturas\Http\Requests\Request;
 
