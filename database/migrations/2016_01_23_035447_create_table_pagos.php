@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersTable extends Migration
+class CreateTablePagos extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +12,13 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('pagos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('email');
-            $table->string('username')->unique();
-            $table->string('password', 60);
-            $table->enum('type', ['administrador','usuario']);
-            $table->rememberToken();
+            $table->integer('cuentaxpagar_id')->unsigned();
+            $table->foreign('cuentaxpagar_id')->references('id')->on('cuentasxpagar');
+            $table->decimal('abono', 8, 2);
+            $table->dateTime('fecha_pago');
+            $table->string('detalle');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -32,6 +31,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::drop('users');
+        Schema::drop('pagos');
     }
 }

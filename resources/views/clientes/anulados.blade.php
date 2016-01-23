@@ -11,12 +11,12 @@
             <thead>
             <tr>
                 <th></th>
-                <th>identificación</th>
+                <th>Identificaci&#243;n</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
                 <th>Correo</th>
-                <th>Dirección</th>
-                <th>Teléfono</th>
+                <th>Direcci&#243;n</th>
+                <th>Tel&#233;fono</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -25,7 +25,9 @@
             @foreach( $clientes as $cliente)
                 <tr>
                     <td>
+                        @if(Auth::user()->type == 'administrador')
                         <small><a id="cliente_restore" onclick="Restaurar($(this).data('id'))" data-id="{!! $cliente->id !!}"  class="btn btn-success glyphicon glyphicon-refresh btn-xs" title="Restaurar" data-toggle="modal" data-target="#myModalRestore" onclick=""></a></small>
+                        @endif
                     </td>
                     <td>{{$cliente->identificacion}}</td>
                     <td>{{$cliente->nombres}}</td>
@@ -34,7 +36,9 @@
                     <td>{{$cliente->direccion}}</td>
                     <td>{{$cliente->telefono}}</td>
                     <td>
-                        <small><a id="cliente_delete" onclick="Eliminar($(this).data('id'))" data-id="{!! $cliente->id !!}"  class="btn btn-danger glyphicon glyphicon-trash btn-xs" title="Eliminar" data-toggle="modal" data-target="#myModalRestore" onclick=""></a></small>
+                        @if(Auth::user()->type == 'administrador')
+                        <small><a id="cliente_delete" onclick="Eliinar($(this).data('id'))" data-id="{!! $cliente->id !!}"  class="btn btn-danger glyphicon glyphicon-trash btn-xs" title="Eliminar" data-toggle="modal" data-target="#myModalRestore" onclick=""></a></small>
+                        @endif
                     </td>
                 </tr>
             @endforeach

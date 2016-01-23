@@ -11,6 +11,10 @@ use CuentasFacturas\Http\Controllers\Controller;
 
 class ProveedoresController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function getList()
     {
         $proveedores = Proveedores::orderBy('nombres')->paginate(10);

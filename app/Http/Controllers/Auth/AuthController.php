@@ -4,6 +4,7 @@ namespace CuentasFacturas\Http\Controllers\Auth;
 
 use CuentasFacturas\Http\Requests\EditUserRequest;
 use CuentasFacturas\User;
+use Illuminate\Support\Facades\Auth;
 use Validator;
 use CuentasFacturas\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -29,13 +30,14 @@ class AuthController extends Controller
      *
      * @return void
      */
+
+
     public function __construct()
     {
         $this->middleware('guest', ['only' => 'getLogin']);
-        //$this->middleware('admin', ['only' => ['getRegister','getEdit']]);
+        $this->middleware('admin', ['only' => ['getRegister','getEdit']]);
         //$this->middleware('admin', ['except' => ['getLogin','postLogin','getLogout']]);
     }
-
     /**
      * Get a validator for an incoming registration request.
      *
@@ -62,15 +64,24 @@ class AuthController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
+            'username' => $data['username'],
+            'type' => $data['type'],
             'password' => bcrypt($data['password']),
         ]);
     }
 
     public function getListUsers()
     {
-        $users = User::orderBy('name')->paginate(10);
+        $users = User::orderBy('type')->orderBy('name')->paginate(10);
 
         return view('auth.listusers', compact('users'));
+    }
+
+    public  function getOutUser()
+    {
+        $users = User::onlyTrashed()->orderBy('type')->orderBy('name')->paginate(10);
+
+        return view('auth.outusers', compact('users'));
     }
 
     public function getEdit($id=0)
@@ -89,5 +100,31 @@ class AuthController extends Controller
         $user->fill($request->all());
         $user->save();
         return redirect()->route('user_list')->with('message', 'editok');
+    }
+
+    public function getCancel($id)
+    {
+        $user = User::find($id);
+        if( $user->id == Auth::user()->id)
+        {
+            return response()->json([
+                "mensaje" => "login",
+            ]);
+        }
+        $user->delete();
+
+        return response()->json([
+            "mensaje" => "ok",
+        ]);
+    }
+
+    public function getRestart($id)
+    {
+        $user = User::withTrashed()->find($id);
+        $user->restore();
+
+        return response()->json([
+            "mensaje" => "ok",
+        ]);
     }
 }

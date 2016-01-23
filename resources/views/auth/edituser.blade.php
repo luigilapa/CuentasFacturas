@@ -16,6 +16,12 @@
             {!! Form::email('email', $user->email, ['class'=> 'form-control']) !!}
         </div>
     </div>
+    <div class="row">
+        <div class="form-group col-sm-6 col-md-6 col-lg-3">
+            <label>Perfil</label>
+            {!! Form::select('type', array('administrador' => 'Administrador', 'usuario' => 'Usuario'), $user->type , ['class'=> 'form-control']) !!}
+        </div>
+    </div>
     <hr/>
     <div class="row">
         <div class="col-lg-2">

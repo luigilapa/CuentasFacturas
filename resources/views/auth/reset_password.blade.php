@@ -1,5 +1,5 @@
 @extends('layout/master')
-<?php $title='Cambiar Contrase&#241;a' ?>
+<?php $title='Cambiar Credenciales' ?>
 @section('content')
     @include('alerts.request')
     {!! Form::open(['route' => 'user_reset', 'class' => 'form']) !!}
@@ -9,7 +9,7 @@
     <div class="row">
         <div class="form-group col-sm-6 col-md-6 col-lg-4">
             <label>Usuario</label>
-            {!! Form::text( 'user', '', ['class'=> 'form-control']) !!}
+            {!! Form::text( 'username', ' ', ['class'=> 'form-control']) !!}
         </div>
         <div class="form-group col-sm-6 col-md-6 col-lg-4">
             <label>Contrase&#241;a</label>
@@ -23,7 +23,7 @@
     <div class="row">
         <div class="form-group col-sm-6 col-md-6 col-lg-4">
             <label>Nuevo Usuario</label>
-            {!! Form::text( 'new_user', '', ['class'=> 'form-control']) !!}
+            {!! Form::text( 'new_username', '', ['class'=> 'form-control']) !!}
         </div>
     </div>
     <hr/>

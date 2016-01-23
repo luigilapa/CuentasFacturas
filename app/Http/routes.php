@@ -1,17 +1,6 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the controller to call when that URI is requested.
-|
-*/
 
-// Authentication routes...
 Route::get('login', [
     'as' => 'login',
     'uses' => 'Auth\AuthController@getLogin'
@@ -57,9 +46,9 @@ Route::get('user_list', [
 
 Route::get('user_reset', [
     'as' => 'user_reset',
-    'uses' => 'PasswordController@getReset'
+    'uses' => 'Auth\PasswordController@getReset'
 ]);
-Route::post('user_reset', 'PasswordController@postReset' );
+Route::post('user_reset', 'Auth\PasswordController@postReset' );
 
 Route::get('user_edit/{id?}', [
     'as' => 'user_edit',
@@ -67,11 +56,17 @@ Route::get('user_edit/{id?}', [
 ]);
 Route::post('user_edit',  'Auth\AuthController@postEdit' );
 
-Route::post('user_cancel/{id}', 'Auth\AuthController@postCancel' );
+Route::get('user_cancel/{id}', [
+    'as' => 'user_cancel',
+    'uses' => 'Auth\AuthController@getCancel'
+]);
 
-Route::post('user_restart/{id}', 'Auth\AuthController@postRestart' );
+Route::get('user_restart/{id}', [
+    'as' => 'user_restart',
+    'uses' => 'Auth\AuthController@getRestart'
+]);
 
-Route::get('user_out}', [
+Route::get('user_out', [
     'as' => 'user_out',
     'uses' => 'Auth\AuthController@getOutUser'
 ]);

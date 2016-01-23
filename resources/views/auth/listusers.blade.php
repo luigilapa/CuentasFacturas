@@ -25,8 +25,9 @@
         <thead>
         <tr>
             <th>Nombres</th>
-            <th>Email</th>
             <th>Usuario</th>
+            <th>Correo</th>
+            <th>Tipo</th>
             <th></th>
             <th></th>
         </tr>
@@ -35,13 +36,18 @@
         @foreach( $users as $user)
             <tr>
                 <td>{{$user->name}}</td>
-                <td>{{$user->email}}</td>
                 <td>{{$user->username}}</td>
+                <td>{{$user->email}}</td>
+                <td>{{$user->type}}</td>
                 <td>
-                    <small><a href="{{route('user_edit',$user->id)}}" class="btn btn-warning glyphicon glyphicon-pencil btn-xs" title="Editar"></a></small>
+                    @if(Auth::user()->type == 'administrador')
+                    <small><a href="{{route('user_edit',$user->id)}}" class="btn btn-default glyphicon glyphicon-pencil btn-xs" title="Editar"></a></small>
+                    @endif
                 </td>
                 <td>
-                    <small><a onclick="CancelUser($(this).data('id'))" data-id="{!! $user->id !!}" class="btn btn-danger glyphicon glyphicon-remove-sign btn-xs" title="Anular"></a></small>
+                    @if(Auth::user()->type == 'administrador')
+                    <small><a onclick="CancelUser($(this).data('id'))" data-id="{!! $user->id !!}" class="btn btn-warning glyphicon glyphicon-remove-sign btn-xs" title="Anular"></a></small>
+                    @endif
                 </td>
             </tr>
         @endforeach
@@ -67,7 +73,7 @@
                         $.ajax({
                             url : '/user_cancel/'+id,
                             headers:{'X-CSRF-TOKEN' : token},
-                            type:'POST',
+                            type:'GET',
                             dataType: 'json',
                             success:function(r)
                             {

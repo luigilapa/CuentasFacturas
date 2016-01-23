@@ -9,26 +9,24 @@
             <thead>
             <tr>
                 <th></th>
-                <th>Apellidos</th>
                 <th>Nombres</th>
-                <th>Email</th>
                 <th>Usuario</th>
-                <th>Perfil</th>
+                <th>Correo</th>
+                <th>Tipo</th>
             </tr>
             </thead>
             <tbody>
             @foreach( $users as $user)
                 <tr>
                     <td>
-                        @if(Auth::user()->type == 'admin')
-                            <small><a onclick="ResestUser($(this).data('id'))" data-id="{!! $user->id !!}" class="btn btn-success glyphicon glyphicon-refresh btn-xs" title="Activar"></a></small>
+                        @if(Auth::user()->type == 'administrador')
+                        <small><a onclick="ResestUser($(this).data('id'))" data-id="{!! $user->id !!}" class="btn btn-success glyphicon glyphicon-refresh btn-xs" title="Activar"></a></small>
                         @endif
                     </td>
-                    <td>{{$user->last_name}}</td>
-                    <td>{{$user->first_name}}</td>
+                    <td>{{$user->name}}</td>
+                    <td>{{$user->username}}</td>
                     <td>{{$user->email}}</td>
-                    <td>{{$user->user}}</td>
-                    <td>{{$user->type=='user'?'Usuario':'Administrador'}}</td>
+                    <td>{{$user->type}}</td>
                 </tr>
             @endforeach
             </tbody>
@@ -53,7 +51,7 @@
                         $.ajax({
                             url : '/user_restart/'+id,
                             headers:{'X-CSRF-TOKEN' : token},
-                            type:'POST',
+                            type:'GET',
                             dataType: 'json',
                             success:function(r)
                             {

@@ -31,12 +31,12 @@
         <table class="table">
             <thead>
             <tr>
-                <th>identificación</th>
+                <th>Identificaci&#243;n</th>
                 <th>Nombres</th>
                 <th>Apellidos</th>
                 <th>Correo</th>
-                <th>Dirección</th>
-                <th>Teléfono</th>
+                <th>Direcci&#243;n</th>
+                <th>Tel&#233;fono</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -54,8 +54,10 @@
                         <small><a href="{{route('editar_cliente',$cliente->id)}}" class="btn btn-default glyphicon glyphicon-pencil btn-xs" title="Editar"></a></small>
                     </td>
                     <td>
+                        @if(Auth::user()->type == 'administrador')
                         <!--<small><a href="{{route('anular_cliente',$cliente->id)}}" class="btn btn-danger glyphicon glyphicon-remove-sign btn-xs" title="Anular"></a></small>-->
                         <small><a onclick="Anular($(this).data('id'))" data-id="{!! $cliente->id !!}" class="btn btn-warning glyphicon glyphicon-remove-sign btn-xs" title="Anular"></a></small>
+                        @endif
                     </td>
                 </tr>
             @endforeach

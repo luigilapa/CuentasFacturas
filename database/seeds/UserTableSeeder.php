@@ -16,6 +16,7 @@ class UserTableSeeder extends Seeder
             'username' => 'luigi',
             'email' => 'lapa@mail.com',
             'password' => bcrypt('12345'),
+            'type' => 'administrador',
             'remember_token' => str_random(10)
         ]);
 
@@ -24,6 +25,7 @@ class UserTableSeeder extends Seeder
             'username' => 'diana',
             'email' => 'diana@mail.com',
             'password' => bcrypt('12345'),
+            'type' => 'usuario',
             'remember_token' => str_random(10)
         ]);
 

@@ -34,6 +34,15 @@
     @endsection
 @endif
 
+@if($message == 'inantivo')
+@section('script')
+    <script>
+        var n = noty({text: 'El usuario se encuentra inactivo!', type: 'warning'});
+    </script>
+@endsection
+@endif
+
+
 @section('content')
     <div class="row login">
         <div class="col-md-4 col-md-offset-4 vcenter">

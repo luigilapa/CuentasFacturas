@@ -16,6 +16,7 @@ $factory->define(CuentasFacturas\User::class, function (Faker\Generator $faker) 
         'name' => $faker->name,
         'username' => $faker->userName,
         'email' => $faker->email,
+        'type' => 'usuario',
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
     ];

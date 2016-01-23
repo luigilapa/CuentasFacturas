@@ -32,7 +32,7 @@
             <ul class="nav navbar-nav navbar-right">
                 @if (!Auth::guest())
                     <li>
-                        <a href="{{route('home')}}">{{ Auth::user()->first_name }} <small class="glyphicon glyphicon-user"></small> </a>
+                        <a href="{{route('home')}}">{{ Auth::user()->name }} <small class="glyphicon glyphicon-user"></small> </a>
                     </li>
                 @endif
                 <li class="dropdown ">
@@ -162,7 +162,9 @@
                                 <div id="dropdown-User" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
+                                            @if(Auth::user()->type == 'administrador')
                                             <li><a href="{{route('user_register')}}"><small class="glyphicon glyphicon-plus"></small>Agregar Usuario</a></li>
+                                            @endif
                                             <li><a href="{{route('user_list')}}"><small class="glyphicon glyphicon-list"></small>Lista De Usuarios</a></li>
                                             <li><a href="{{route('user_out')}}"><small class="glyphicon glyphicon-erase"></small>Inactivos</a></li>
                                         </ul>

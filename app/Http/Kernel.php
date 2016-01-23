@@ -29,5 +29,6 @@ class Kernel extends HttpKernel
         'auth' => \CuentasFacturas\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \CuentasFacturas\Http\Middleware\RedirectIfAuthenticated::class,
+        'admin' => \CuentasFacturas\Http\Middleware\AdminMiddleware::class,
     ];
 }

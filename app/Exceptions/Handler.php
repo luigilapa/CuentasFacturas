@@ -17,7 +17,6 @@ class Handler extends ExceptionHandler
      */
     protected $dontReport = [
         HttpException::class,
-        ModelNotFoundException::class,
     ];
 
     /**
@@ -28,6 +27,7 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $e
      * @return void
      */
+
     public function report(Exception $e)
     {
         return parent::report($e);
@@ -42,10 +42,32 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $e)
     {
-        if ($e instanceof ModelNotFoundException) {
-            $e = new NotFoundHttpException($e->getMessage(), $e);
-        }
+        if($this->isHttpException($e)){
+            switch ($e->getStatusCode()) {
+                case '404':
+                    \Log::error($e);
+                    return \Response::view('errors.404');
+                    break;
 
-        return parent::render($request, $e);
+                case '500':
+                    \Log::error($e);
+                    return \Response::view('errors.500');
+                    break;
+
+                case '503':
+                    \Log::error($e);
+                    return \Response::view('errors.503');
+                    break;
+
+                default:
+                    return $this->renderHttpException($e);
+                    break;
+            }
+        }
+        else
+        {
+            //return parent::render($request, $e);
+            return \Response::view('errors.failure');
+        }
     }
 }
