@@ -14,7 +14,16 @@ class UserTableSeeder extends Seeder
         factory(CuentasFacturas\User::class)->create([
             'name' => 'Luigi',
             'username' => 'luigi',
-            'email' => 'lapa@mail.com',
+            'email' => 'ss@mail.com',
+            'password' => bcrypt('12345'),
+            'type' => 'administrador',
+            'remember_token' => str_random(10)
+        ]);
+
+        factory(CuentasFacturas\User::class)->create([
+            'name' => 'Admin 12345',
+            'username' => 'admin',
+            'email' => 'admin@mail.com',
             'password' => bcrypt('12345'),
             'type' => 'administrador',
             'remember_token' => str_random(10)

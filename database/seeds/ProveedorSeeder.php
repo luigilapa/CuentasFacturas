@@ -19,6 +19,6 @@ class ProveedorSeeder extends Seeder
             'direccion' => 'manta'
         ]);
 
-        factory(CuentasFacturas\Proveedores::class, 20)->create();
+        factory(CuentasFacturas\Proveedores::class, 50)->create();
     }
 }

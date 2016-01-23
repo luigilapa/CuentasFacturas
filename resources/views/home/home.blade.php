@@ -6,7 +6,7 @@
     <?php $title='Inicio' ?>
     <div class="row center">
         <div class="col-lg-4">
-            <img class="img-circle" src="assets/image/logo.jpg" style="width: 150px; height: 150px;"/>
+            <img class="img-circle" src="assets/image/logo.png" style="width: 150px; height: 150px;"/>
         </div>
         <div class="col-lg-4">
             <h2>Bienvenido</h2>

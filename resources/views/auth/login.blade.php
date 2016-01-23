@@ -47,7 +47,7 @@
     <div class="row login">
         <div class="col-md-4 col-md-offset-4 vcenter">
             <div class="panel panel-default">
-                <div class="panel-heading"><a href={{route('/')}}><h5>Asociaci&#243;n de Abogados de Manta</h5></a></div>
+                <div class="panel-heading"><a href={{route('/')}}><h5>Cuentas Facturas</h5></a></div>
                 <div class="panel-body">
                     {!! Form::open(['route' => 'login', 'class' => 'form']) !!}
                     <div class="form-group">
@@ -71,11 +71,9 @@
         </div>
     </div>
     <div class="row about">
-            <img src="assets/image/logo.jpg" style="width: 100px; height: 100px;">
+            <img src="assets/image/logo.png" style="width: 100px; height: 100px;">
             <p class="about-author">
-                &copy; 2015 <a href="https://www.facebook.com/Facci.Uleam" target="_blank">FACCI - ULEAM </a> <br>
-                Desarrollado por <a href="https://ec.linkedin.com/pub/luis-palma/a5/829/777" target="_blank">Luis Palma</a>
-                - lapa89@outlook.es
+                &copy; 2016 <a href="https://www.facebook.com/Facci.Uleam" target="_blank">FACCI - ULEAM </a> <br>
             </p>
     </div>
 @endsection

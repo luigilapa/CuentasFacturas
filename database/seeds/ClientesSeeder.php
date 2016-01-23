@@ -20,6 +20,6 @@ class ClientesSeeder extends Seeder
             'direccion' => 'manta'
         ]);
 
-        factory(CuentasFacturas\Clientes::class, 20)->create();
+        factory(CuentasFacturas\Clientes::class, 50)->create();
     }
 }
