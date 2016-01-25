@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cuentas Facturas</title>
+    <title>Cuentas por pagar & Cuentas por cobrar</title>
     {!! Html::style('assets/css/bootstrap.min.css') !!}
 
     {!! Html::style('assets/css/layout.css') !!}
@@ -20,7 +20,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Cuentas Facturas</a>
+            <a class="navbar-brand" href="#">Cuentas por pagar & Cuentas por cobrar</a>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <!--                <form class="navbar-form navbar-left" method="GET" role="search">

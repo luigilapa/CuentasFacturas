@@ -47,7 +47,7 @@
     <div class="row login">
         <div class="col-md-4 col-md-offset-4 vcenter">
             <div class="panel panel-default">
-                <div class="panel-heading"><a href={{route('/')}}><h5>Cuentas Facturas</h5></a></div>
+                <div class="panel-heading"><a href={{route('/')}}><h5>Cuentas por pagar & Cuentas por cobrar</h5></a></div>
                 <div class="panel-body">
                     {!! Form::open(['route' => 'login', 'class' => 'form']) !!}
                     <div class="form-group">

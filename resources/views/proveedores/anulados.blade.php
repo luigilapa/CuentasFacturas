@@ -25,7 +25,7 @@
                 <tr>
                     <td>
                         @if(Auth::user()->type == 'administrador')
-                        <small><a id="pro_restore" onclick="Restauar($(this).data('id'))" data-id="{!! $proveedor->id !!}"  class="btn btn-success glyphicon glyphicon-refresh btn-xs" title="Restaurar" data-toggle="modal" data-target="#myModalRestore" onclick=""></a></small>
+                        <small><a id="pro_restore" onclick="Restaurar($(this).data('id'))" data-id="{!! $proveedor->id !!}"  class="btn btn-success glyphicon glyphicon-refresh btn-xs" title="Restaurar" data-toggle="modal" data-target="#myModalRestore" onclick=""></a></small>
                         @endif
                     </td>
                     <td>{{$proveedor->identificacion}}</td>
