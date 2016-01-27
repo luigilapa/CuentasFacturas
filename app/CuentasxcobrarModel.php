@@ -12,10 +12,5 @@ class CuentasxcobrarModel extends Model
 
     protected $table = 'cuentasxcobrar';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = ['cliente_id', 'monto', 'detalle', 'fecha_max_pago'];
 }

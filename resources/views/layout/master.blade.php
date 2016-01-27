@@ -109,7 +109,7 @@
                                 <div id="dropdown-Lawyer" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
-                                            <li><a href="#"><small class="glyphicon glyphicon-plus"></small>Registrar</a></li>
+                                            <li><a href="{{route('registrar_ctaxcobrar')}}"><small class="glyphicon glyphicon-plus"></small>Registrar</a></li>
                                             <li><a href="#"><small class="glyphicon glyphicon-list"></small>Consultar</a></li>
                                             <li><a href="#"><small class="glyphicon glyphicon-erase"></small>Abonos</a></li>
                                         </ul>
@@ -127,7 +127,7 @@
                                 <div id="dropdown-Contributions" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
-                                            <li><a href="#"><small class="glyphicon glyphicon-plus"></small>Registrar</a></li>
+                                            <li><a href="{{route('registrar_ctaxpagar')}}"><small class="glyphicon glyphicon-plus"></small>Registrar</a></li>
                                             <li><a href="#"><small class="glyphicon glyphicon-list"></small>Consultar</a></li>
                                             <li><a href="#"><small class="glyphicon glyphicon-erase"></small>Abonos</a></li>
                                         </ul>
