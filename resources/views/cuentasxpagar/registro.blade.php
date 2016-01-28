@@ -2,7 +2,9 @@
 <?php $title='Registrar Cuenta Por Pagar' ?>
 
 @section('content')
-    @include('formularios.registro_cuentas_form')
+    @include('alerts.request')
+    <?php $quebusco = "Proveedor"; $id_relacion = "proveedor_id"; ?>
+    @include('formularios.frm_registro_cuentas')
 @endsection
 
 @section('script')

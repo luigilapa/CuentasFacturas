@@ -5,7 +5,7 @@
 @if($message == 'ok')
 @section('script')
     <script>
-        var n = noty({text: 'Proveedor registrado Correctamente!', type: 'success'});
+        var n = noty({text: 'Proveedor registrado Correctamente.', type: 'success'});
     </script>
 @endsection
 @endif

@@ -66,8 +66,8 @@ class Handler extends ExceptionHandler
         }
         else
         {
-            //return parent::render($request, $e);
-            return \Response::view('errors.failure');
+            return parent::render($request, $e);
+            //return \Response::view('errors.failure');
         }
     }
 }

@@ -20,7 +20,7 @@ class ClientesController extends Controller
 
     public function getList()
     {
-        $clientes = Clientes::orderBy('nombres')->orderBy('apellidos')->paginate(10);
+       // $clientes = Clientes::orderBy('nombres')->orderBy('apellidos')->paginate(10);
         $clientes = Clientes::orderBy('nombres')->orderBy('apellidos')->paginate(10);
 
         return view('clientes.lista', compact('clientes'));
