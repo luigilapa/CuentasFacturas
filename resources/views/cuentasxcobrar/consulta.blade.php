@@ -23,14 +23,13 @@
                         <small><a href="{{route('detalle_ctaxcobrar',$item->cliente_id)}}" class="btn btn-info glyphicon glyphicon-eye-open btn-xs" title="Ver Detalles"></a></small>
                     </td>
                     <td>
-                        <small><a href="{{route('editar_cliente',$item->cliente_id)}}" class="btn btn-warning glyphicon glyphicon glyphicon-usd btn-xs" title="Ir a pagos"></a></small>
+                        <small><a href="#" class="btn btn-warning glyphicon glyphicon glyphicon-usd btn-xs" title="Ir a pagos"></a></small>
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     </div>
-
 @endsection
 @section('content_extend')
     {!! $ctasxcobrar->render() !!}

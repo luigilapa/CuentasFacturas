@@ -52,7 +52,11 @@ class CuentasCobrarController extends Controller
 
     public function getConsultaDetalles($cliente_id)
     {
-        $facturas = CuentasxcobrarModel::where('cliente_id','=',$cliente_id)->paginate(10);
+        $facturas = CuentasxcobrarModel::where('cliente_id','=',$cliente_id)
+                                        ->where("estado_activo","=",1)
+                                        ->join('clientes', 'clientes.id', '=', 'cuentasxcobrar.cliente_id')
+                                        ->select(DB::raw('clientes.identificacion, clientes.nombres, clientes.apellidos, cuentasxcobrar.id, cuentasxcobrar.monto, cuentasxcobrar.detalle, cuentasxcobrar.fecha_max_pago, cuentasxcobrar.created_at, cuentasxcobrar.estado_activo'))
+                                        ->paginate(10);
         return view('cuentasxcobrar.consulta_detalles',compact('facturas'));
     }
 }
