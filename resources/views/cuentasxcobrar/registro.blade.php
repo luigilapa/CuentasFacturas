@@ -77,6 +77,7 @@
                 dataType: 'json',
                 success:function(r)
                 {
+                    debugger;
                     $('#cliente_id').val(r.id);
                     $('#nombres').val(r.nombres +" " + r.apellidos);
                     var n = noty({text: 'Cliente encontrado!', type: 'success'});

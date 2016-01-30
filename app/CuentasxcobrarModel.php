@@ -12,5 +12,6 @@ class CuentasxcobrarModel extends Model
 
     protected $table = 'cuentasxcobrar';
 
-    protected $fillable = ['cliente_id', 'monto', 'detalle', 'fecha_max_pago'];
+    protected $fillable = ['id','cliente_id', 'monto', 'detalle', 'fecha_max_pago', 'saldo'];
+    protected $hidden = ['id'];
 }

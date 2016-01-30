@@ -12,5 +12,5 @@ class CuentasxpagarModel extends Model
 
     protected $table = 'cuentasxpagar';
 
-    protected $fillable = ['proveedor_id', 'monto', 'detalle', 'fecha_max_pago'];
+    protected $fillable = ['proveedor_id', 'monto', 'detalle', 'fecha_max_pago', 'saldo'];
 }

@@ -34,7 +34,7 @@
                     <td>{{$proveedor->direccion}}</td>
                     <td>{{$proveedor->telefono}}</td>
                     <td>
-                        @@if(Auth::user()->type == 'administrador')
+                        @if(Auth::user()->type == 'administrador')
                         <small><a id="pro_delete" onclick="Eliminar($(this).data('id'))" data-id="{!! $proveedor->id !!}"  class="btn btn-danger glyphicon glyphicon-trash btn-xs" title="Eliminar" data-toggle="modal" data-target="#myModalRestore" onclick=""></a></small>
                          @endif
                     </td>

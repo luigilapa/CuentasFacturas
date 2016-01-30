@@ -111,7 +111,7 @@
                                         <ul class="nav navbar-nav navbar-inverse">
                                             <li><a href="{{route('registrar_ctaxcobrar')}}"><small class="glyphicon glyphicon-plus"></small>Registrar</a></li>
                                             <li><a href="{{route('consulta_ctaxcobrar')}}"><small class="glyphicon glyphicon-list"></small>Consultar</a></li>
-                                            <li><a href="#"><small class="glyphicon glyphicon-erase"></small>Abonos</a></li>
+                                            <li><a href="{{route('abono_ctaxcobrar')}}"><small class="glyphicon glyphicon-erase"></small>Abonos</a></li>
                                         </ul>
                                     </div>
                                 </div>

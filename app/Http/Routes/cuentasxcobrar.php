@@ -21,3 +21,20 @@ Route::get('detalle_ctaxcobrar/{cliente_id}', [
     'as' => 'detalle_ctaxcobrar',
     'uses' => 'CuentasCobrarController@getConsultaDetalles'
 ]);
+
+Route::get('abono_ctaxcobrar', [
+    'as' => 'abono_ctaxcobrar',
+    'uses' => 'CuentasCobrarController@getAbonos'
+]);
+Route::post('abono_ctaxcobrar', 'CuentasCobrarController@postAbonos' );
+
+Route::get('abono_ctaxcobrar_ajax/{cliente_id}', [
+    'as' => 'abono_ctaxcobrar_ajax',
+    'uses' => 'CuentasCobrarController@getAbonosAjax'
+]);
+
+Route::get('abonodatos_ctaxcobrar/{cliente_id?}', [
+    'as' => 'abonodatos_ctaxcobrar',
+    'uses' => 'CuentasCobrarController@getAbonosDatos'
+]);
+Route::post('abonodatos_ctaxcobrar', 'CuentasCobrarController@postAbonosDatos' );
