@@ -4,7 +4,7 @@
     body {
         font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
         color: #404040;
-        background: #0ca3d2;
+        background: #404040;
     }
     .login
     {
@@ -18,8 +18,7 @@
         color: #666;
         text-align: center;
         text-shadow: 0 1px rgba(255, 255, 255, 0.25);
-        background: #FFFFFF;
-        background: rgba(250, 250, 250, 0.5);
+        background: #F4F7FC;
         border-radius: 4px;
     }
 </style>

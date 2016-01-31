@@ -13,7 +13,7 @@ class PagosRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,11 @@ class PagosRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
+        $rules = [
+            'proveedor_id'=> 'required',
+            'abono' => 'required|min:0|regex:/^\d*(\.\d{2})?$/',
+            'detalle' => 'max:255',
         ];
+        return $rules;
     }
 }

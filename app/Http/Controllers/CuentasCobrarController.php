@@ -110,7 +110,18 @@ class CuentasCobrarController extends Controller
 
     public function postAbonosDatos(Requests\Cuentas\CobrosRequest $request)
     {
-        $this->RegistrarAbono($request);
+        $cuentasxcobrar = CuentasxcobrarModel::where('cliente_id','=',$request['cliente_id'])
+            ->where("estado_activo","=",1)
+            ->orderBy('created_at')
+            ->get();
+
+        $abono = $request['abono'];
+        if($abono > $cuentasxcobrar->sum('saldo')) {
+            $errors = array("0" => "El valor del pago es mayor a la deuda pendiente!");
+            return $request->response($errors);
+        }
+
+        $this->RegistrarAbono($request, $cuentasxcobrar);
         return  redirect()->route('consulta_ctaxcobrar')->with('message', 'ok');
     }
 
@@ -133,18 +144,9 @@ class CuentasCobrarController extends Controller
             'saldo' => $data['monto'],
         ]);
     }
-    protected  function RegistrarAbono($request)
+    protected  function RegistrarAbono($request, $cuentasxcobrar)
     {
-        $cuentasxcobrar = CuentasxcobrarModel::where('cliente_id','=',$request['cliente_id'])
-            ->where("estado_activo","=",1)
-            ->orderBy('created_at')
-            ->get();
-
         $abono = $request['abono'];
-        if($abono > $cuentasxcobrar->sum('monto')) {
-            $errors = array("0" => "El valor del pago es mayor a la deuda pendiente!");
-            return $request->response($errors);
-        }
 
         foreach($cuentasxcobrar as $item)
         {

@@ -13,7 +13,7 @@ class CtaPagarRequest extends Request
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,8 +23,12 @@ class CtaPagarRequest extends Request
      */
     public function rules()
     {
-        return [
-            //
+        $rules = [
+            'proveedor_id'=> 'required',
+            'monto' => 'required|min:0|regex:/^\d*(\.\d{2})?$/',
+            'detalle' => 'required|max:255',
+            'fecha_max_pago' => 'required|date_format:"Y-m-d"'
         ];
+        return $rules;
     }
 }
