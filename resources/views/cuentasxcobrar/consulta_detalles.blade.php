@@ -7,7 +7,10 @@
             <small><a href="{{route('consulta_ctaxcobrar')}}" class="btn btn-info glyphicon glyphicon-arrow-left btn-sm" title="Volver"></a></small>
         </div>
         <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
-            <small><a href="{{route('abonodatos_ctaxcobrar',$facturas[0]->cliente_id)}}" class="btn btn-warning glyphicon glyphicon glyphicon-usd btn-sm" title="Ir a pagos"></a></small>
+            <small><a href="{{route('abonodatos_ctaxcobrar',$facturas[0]->cliente_id)}}" class="btn btn-default glyphicon glyphicon glyphicon-usd btn-sm" title="Ir a pagos"></a></small>
+        </div>
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
+            <small><a href="{{route('rep_ctascliente',$facturas[0]->cliente_id)}}" target="_blank" class="btn btn-default glyphicon glyphicon glyphicon-print btn-sm" title="Imprimir PDF"></a></small>
         </div>
     </div>
     <hr/>

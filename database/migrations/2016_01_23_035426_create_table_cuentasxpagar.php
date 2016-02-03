@@ -18,7 +18,7 @@ class CreateTableCuentasxpagar extends Migration
             $table->foreign('proveedor_id')->references('id')->on('proveedores');
             $table->decimal('monto', 8, 2);
             $table->string('detalle');
-            $table->dateTime('fecha_max_pago');
+            $table->date('fecha_max_pago');
             $table->boolean('estado_activo')->default(true);
             $table->timestamps();
             $table->softDeletes();

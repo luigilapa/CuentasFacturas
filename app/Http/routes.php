@@ -37,3 +37,4 @@ require app_path('Http/Routes/clientes.php');
 require app_path('Http/Routes/proveedores.php');
 require app_path('Http/Routes/cuentasxcobrar.php');
 require app_path('Http/Routes/cuentasxpagar.php');
+require app_path('Http/Routes/reporte.php');
