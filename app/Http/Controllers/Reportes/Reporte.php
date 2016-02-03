@@ -61,4 +61,33 @@ class Reporte
 
         return $this->table;
     }
+
+    public function getSubTable($columnas, $filas) {
+
+        if($filas == "")
+        {
+            return '<div style="width:75%;" style="text-align:right"><p>No se han realizado pagos...</p></div>';
+        }
+
+        $col ="";
+        foreach($columnas as $columna)
+        {
+            $col .= '<th style="background: #ffbf00; color: #000000; font-size: 14px;">'.$columna.'</th>';
+        }
+
+        $this->table = '<div>' .
+            '<table style="width:75%;" align="right">' .
+            '<thead style="">' .
+            '<tr>' .
+            $col.
+            '</tr>' .
+            '</thead>' .
+            '<tbody style="">' .
+            $filas .
+            '</tbody>' .
+            '</table>' .
+            '</div>';
+
+        return $this->table;
+    }
 }

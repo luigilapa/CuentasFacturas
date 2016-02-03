@@ -66,7 +66,7 @@
                             <!-- Dropdown-->
                             <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#dropdown-Clientes" class="bg-primary">
-                                    <span class="glyphicon glyphicon-folder-open"></span> Clientes <span class="caret"></span>
+                                    <span class="glyphicon glyphicon-book"></span> Clientes <span class="caret"></span>
                                 </a>
 
                                 <!-- Usuarios-->
@@ -84,7 +84,7 @@
                             <!-- Dropdown-->
                             <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#dropdown-Proveedores" class="bg-primary">
-                                    <span class="glyphicon glyphicon-folder-open"></span> Proveedores <span class="caret"></span>
+                                    <span class="glyphicon glyphicon-book"></span> Proveedores <span class="caret"></span>
                                 </a>
 
                                 <!-- Usuarios-->
@@ -102,7 +102,7 @@
                             <!-- Dropdown-->
                             <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#dropdown-Lawyer" class="bg-primary">
-                                    <span class="glyphicon glyphicon-folder-open"></span> Cuentas por cobrar <span class="caret"></span>
+                                    <span class="glyphicon glyphicon-hand-right"></span> Cuentas por cobrar <span class="caret"></span>
                                 </a>
 
                                 <!-- Usuarios-->
@@ -110,8 +110,8 @@
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
                                             <li><a href="{{route('registrar_ctaxcobrar')}}"><small class="glyphicon glyphicon-plus"></small>Registrar</a></li>
-                                            <li><a href="{{route('consulta_ctaxcobrar')}}"><small class="glyphicon glyphicon-list"></small>Consultar</a></li>
-                                            <li><a href="{{route('abono_ctaxcobrar')}}"><small class="glyphicon glyphicon-erase"></small>Abonos</a></li>
+                                            <li><a href="{{route('consulta_ctaxcobrar')}}"><small class="glyphicon glyphicon-list"></small>Lista</a></li>
+                                            <li><a href="{{route('abono_ctaxcobrar')}}"><small class="glyphicon glyphicon-usd"></small>Registrar Abono</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -120,7 +120,7 @@
                             <!-- Dropdown-->
                             <li class="panel panel-default" id="dropdown">
                                 <a data-toggle="collapse" href="#dropdown-Contributions" class="bg-primary">
-                                    <span class="glyphicon glyphicon-calendar"></span> Cuentas por pagar <span class="caret"></span>
+                                    <span class="glyphicon glyphicon-hand-left"></span> Cuentas por pagar <span class="caret"></span>
                                 </a>
 
                                 <!-- Usuarios-->
@@ -128,8 +128,8 @@
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
                                             <li><a href="{{route('registrar_ctaxpagar')}}"><small class="glyphicon glyphicon-plus"></small>Registrar</a></li>
-                                            <li><a href="{{route('consulta_ctaxpagar')}}"><small class="glyphicon glyphicon-list"></small>Consultar</a></li>
-                                            <li><a href="{{route('abono_ctaxpagar')}}"><small class="glyphicon glyphicon-erase"></small>Abonos</a></li>
+                                            <li><a href="{{route('consulta_ctaxpagar')}}"><small class="glyphicon glyphicon-list"></small>Lista</a></li>
+                                            <li><a href="{{route('abono_ctaxpagar')}}"><small class="glyphicon glyphicon-usd"></small>Registrar Abono</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -145,8 +145,8 @@
                                 <div id="dropdown-Resports" class="panel-collapse collapse">
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
-                                            <li><a href="#"><small class="glyphicon glyphicon-print"></small>Reporte 1</a></li>
-                                            <li><a href="#"><small class="glyphicon glyphicon-print"></small>Reporte 2</a></li>
+                                            <li><a href="{{route("registro_cuenta")}}"><small class="glyphicon glyphicon-print"></small>Registros de Cuentas</a></li>
+                                            <!--<li><a href="#"><small class="glyphicon glyphicon-print"></small>Reporte 2</a></li>-->
                                         </ul>
                                     </div>
                                 </div>
@@ -163,10 +163,10 @@
                                     <div class="panel-body">
                                         <ul class="nav navbar-nav navbar-inverse">
                                             @if(Auth::user()->type == 'administrador')
-                                            <li><a href="{{route('user_register')}}"><small class="glyphicon glyphicon-plus"></small>Agregar Usuario</a></li>
+                                            <li><a href="{{route('user_register')}}"><small class="glyphicon glyphicon-plus"></small>Agregar</a></li>
                                             @endif
-                                            <li><a href="{{route('user_list')}}"><small class="glyphicon glyphicon-list"></small>Lista De Usuarios</a></li>
-                                            <li><a href="{{route('user_out')}}"><small class="glyphicon glyphicon-erase"></small>Inactivos</a></li>
+                                            <li><a href="{{route('user_list')}}"><small class="glyphicon glyphicon-list"></small>Lista</a></li>
+                                            <li><a href="{{route('user_out')}}"><small class="glyphicon glyphicon-ban-circle"></small>Inactivos</a></li>
                                         </ul>
                                     </div>
                                 </div>

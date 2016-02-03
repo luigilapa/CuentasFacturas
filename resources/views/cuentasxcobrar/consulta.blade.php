@@ -18,11 +18,17 @@
 @endif
 
 @section('content')
+    <div class="row">
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
+            <small><a href="{{route("rep_ctaxcobrar")}}" target="_blank" class="btn btn-default glyphicon glyphicon glyphicon-print btn-sm" title="Imprimir PDF"></a></small>
+        </div>
+    </div>
+    <hr/>
     <div class="table-responsive">
         <table class="table">
             <thead>
             <tr>
-                <th>Cedula/RUC</th>
+                <th>Identificaci&#243;n</th>
                 <th>Cliente</th>
                 <th>Facturas</th>
                 <th>Total</th>

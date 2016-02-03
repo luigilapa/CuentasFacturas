@@ -26,6 +26,12 @@
 @endif
 
 @section('content')
+    <div class="row">
+        <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
+            <small><a href="{{route("rep_proveedores")}}" target="_blank" class="btn btn-default glyphicon glyphicon glyphicon-print btn-sm" title="Imprimir PDF"></a></small>
+        </div>
+    </div>
+    <hr/>
     <input type="hidden" name="_token" value="{{ csrf_token() }}" id="token">
     <div class="table-responsive">
         <table class="table">
