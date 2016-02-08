@@ -196,6 +196,8 @@
     </div>
 </div>
 {!! Html::script('assets/js/jquery.js') !!}
+{!! Html::script('assets/js/jquery-ui.js') !!}
+{!! Html::style('assets/js/jquery-ui.css') !!}
 {!! Html::script('assets/js/bootstrap.min.js') !!}
 {!! Html::script('assets/js/layout.js') !!}
 {!! Html::script('assets/js/noty/packaged/jquery.noty.packaged.min.js') !!}
@@ -205,7 +207,7 @@
 
     <p class="col-md-12">
     <hr class="divider"/>
-    <!-- <a href="@">lapa - accc</a> -->
+    <!-- <a href="@"></a> -->
     </p>
 
 </footer>

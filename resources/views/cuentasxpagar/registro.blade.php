@@ -5,6 +5,9 @@
 @section('script')
     <script>
         var n = noty({text: 'Cuenta por pagar registrada correctamente.', type: 'success'});
+        setTimeout(function(){
+            window.location.reload(1);
+        }, 1000)
     </script>
 @endsection
 @endif
@@ -45,7 +48,7 @@
     <div class="row">
         <div class="form-group col-sm-4 col-md-2 col-lg-2">
             {!! Form::label('fecha_max_pago','Fecha Pago',['class'=>'required']) !!}
-            {!! Form::date('fecha_max_pago', '', ['class'=> 'form-control']) !!}
+            {!! Form::date('fecha_max_pago', '', ['class'=> 'form-control', 'ReadOnly'=>'true']) !!}
         </div>
     </div>
     <hr/>
@@ -77,7 +80,6 @@
                 dataType: 'json',
                 success:function(r)
                 {
-                    debugger;
                     $('#proveedor_id').val(r.id);
                     $('#nombres').val(r.nombres);
                     var n = noty({text: 'Proveedor encontrado!', type: 'success'});
@@ -88,5 +90,34 @@
                 }
             });
         }
+
+        $.datepicker.regional['es'] = {
+            closeText: 'Cerrar',
+            prevText: '<Ant',
+            nextText: 'Sig>',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Mi&#233;rcoles', 'Jueves', 'Viernes', 'S&#225;bado'],
+            dayNamesShort: ['Dom','Lun','Mar','Mi&#233;','Juv','Vie','S&#225;b'],
+            dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','S&#225;'],
+            weekHeader: 'Sm',
+            dateFormat: 'dd/mm/yy',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+        $.datepicker.setDefaults($.datepicker.regional['es']);
+        $(function() {
+            $( "#fecha_max_pago" ).datepicker({
+                beforeShow: function () {
+                    setTimeout(function () {
+                        $('.ui-datepicker').css('z-index', 99999999999999);
+                    }, 0);
+                },
+                dateFormat: 'yy-mm-dd',
+            })
+        });
     </script>
 @endsection
